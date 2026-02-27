@@ -28,6 +28,31 @@ public class MusicOrganizer
         files.add(filename);
     }
     
+    public void checkIndex(int index){
+        if (!(index >= 0 && index < files.size())){
+            System.out.println("Index out of range");
+        }
+    }
+    
+     public boolean validIndex(int index){
+        if (!(index >= 0 && index < files.size())){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+    
+    /**
+     * Add a file to the collection.
+     * @param filename The file to be added.
+     */
+    public void removeFile(int index){
+        if (validIndex(index)){
+            files.remove(index);
+        }
+    }
+    
     /**
      * Return the number of files in the collection.
      * @return The number of files in the collection.
@@ -48,15 +73,12 @@ public class MusicOrganizer
             System.out.println(filename);
         }
     }
-    
-    /**
-     * Remove a file from the collection.
-     * @param index The index of the file to be removed.
-     */
-    public void removeFile(int index)
-    {
-        if(index >= 0 && index < files.size()) {
-            files.remove(index);
+    public void listAllFiles(){
+        int position = 0;
+        for(String filename: files){
+            System.out.println(position + ": " + filename);
+            position = position + 1;
         }
     }
-}
+    }
+
